@@ -40,16 +40,7 @@ services:
     networks:
       - app-network
 
-  #Node JS
-  node-service:
-    image: node:alpine
-    container_name: node_alpine
-    restart: unless-stopped
-    tty: true
-    volumes:
-      - ./:/var/www
-    networks:
-      - app-network
+  
 
   #MySQL Service
   db:

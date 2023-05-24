@@ -8,6 +8,14 @@ RUN if [-f composer.lock] && [-f composer.json] ; then \
 # Set working directory
 WORKDIR /var/www
 
+# Create xdebug.log
+RUN if [! -d /storage/logs] && [! -f /storage/logs/xdebug.log]; then \
+      mkdir storage/logs/ ; \
+      touch /storage/logs/xdebug.log; \
+    elif [ ! -f /storage/logs/xdegug.log]; then \
+      touch /storage/logs/xdebug.log; \
+    fi
+
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -34,9 +42,7 @@ RUN docker-php-ext-install gd
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-#Installing node 12.x
-RUN curl -sL https://deb.nodesource.com/setup_12.x| bash -
-RUN apt-get install -y nodejs
+
 
 # Add user for laravel application
 RUN groupadd -g 1000 www
