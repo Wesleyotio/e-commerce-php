@@ -5,6 +5,13 @@ composer.phar
 /vendor/rain
 /vendor/slim
 /vendor/autoload.php
+/storage/logs/
+/public/res/admin/bootstrap/
+/public/res/admin/pages/
+/public/res/admin/build/
+/public/res/admin/documentation/
+/public/res/admin/plugins/
+/public/res/admin/dist/
 
 
 # Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
